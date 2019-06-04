@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>
+    HTML table listing and pagination Using Bootstrap and Angular 4
+  </h1>
+  <table class="table table-bordered table-striped">
+		<thead>
+		<tr>
+    <td>Id</td>
+    <td>nom</td>		
+		</tr>
+		</thead>
+		<tbody>
+		<tr *ngFor="let c of contact | paginate: { id: 'listing_pagination',
+    itemsPerPage: 30,
+    currentPage: page,
+    totalItems: totalRec}">
+    <td>{{c.id}}</td>
+    <td>{{c.nom}}</td>
+	  
+		</tr>
+		</tbody>
+	</table>
+  
+  <div>
+		<pagination-controls  id="listing_pagination"  directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+	</div>
+  
+</div>
